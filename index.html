@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldenMarket — интернет‑маркетплейс</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a0d00;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        /* Золотые и красные цвета */
+        .gold { color: #d4af37; }
+        .gold-bg { background-color: #d4af37; }
+        .red { color: #b22222; }
+        .red-bg { background-color: #8b0000; }
+
+        header {
+            background: linear-gradient(to right, #8b0000, #d4af37);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(139, 0, 0, 0.5);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 1.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        .search-bar {
+            display: flex;
+            margin: 1rem 0;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .search-bar button {
+            padding: 0.7rem 1.2rem;
+            border: none;
+            background-color: #8b0000;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #b22222;
+        }
+
+        .hero {
+            background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(139, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #d4af37;
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ffd700;
+            transform: translateY(-3px);
+        }
+
+        .categories {
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .categories h2 {
+            margin-bottom: 2rem;
+            color: #d4af37;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background-color: #2a1a0a;
+            border: 2px solid #8b0000;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+        }
+
+        .category-img {
+            height: 180px;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-size: 3rem;
+        }
+
+        .category-info {
+            padding: 1.5rem;
+        }
+
+        .category-info h3 {
+            margin-bottom: 0.5rem;
+            color: #d4af37;
+        }
+
+        .products {
+            padding: 3rem 0;
+            background-color: #221200;
+        }
+
+        .products h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #d4af37;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: #2a1a0a;
+            border: 1px solid #8b0000;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 180px;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .product-info h3 {
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .price {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background-color: #1a0d00;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 2px solid #
