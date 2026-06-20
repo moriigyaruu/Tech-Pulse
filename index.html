@@ -3,42 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GMarket - Золотой Маркетплейс</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>GMarket — Интернет‑маркетплейс</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <header class="site-header">
-        <div class="logo">GMarket</div>
-        <nav class="nav-buttons">
-            <a href="#" class="nav-btn">GMarket</a>
-            <a href="#" class="nav-btn">Продать</a>
-            <a href="#" class="nav-btn">Чаты</a>
-            <a href="#" class="nav-btn">Личный кабинет</a>
+    <header>
+        <h1>GMarket</h1>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-btn">GMarket</a></li>
+                <li><a href="#" class="nav-btn">Продать</a></li>
+                <li><a href="#" class="nav-btn">Чаты</a></li>
+                <li><a href="#" class="nav-btn">Личный кабинет</a></li>
+            </ul>
         </nav>
     </header>
-    <!-- Основное содержимое -->
-    <main class="site-content">
-        <h1>Добро пожаловать на GMarket</h1>
-        <p>Ваш надежный помощник в мире онлайн-торговли. Здесь вы найдете лучшие товары по выгодным ценам.</p>
-        <!-- Здесь будут размещаться карточки товаров -->
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="https://via.placeholder.com/250x150" alt="Товар 1">
-                <h3>Название товара 1</h3>
-                <p>Цена: 10 000 ₽</p>
+
+    <main>
+        <section class="hero">
+            <h2>Добро пожаловать на GMarket!</h2>
+            <p>Лучший маркетплейс для покупок и продаж в золото‑красном стиле.</p>
+        </section>
+
+        <section class="products">
+            <h3>Популярные товары</h3>
+            <div class="product-grid">
+                <div class="product">
+                    <h4>Товар 1</h4>
+                    <p>Описание товара 1</p>
+                    <span class="price">1 000 ₽</span>
+                </div>
+                <div class="product">
+                    <h4>Товар 2</h4>
+                    <p>Описание товара 2</p>
+                    <span class="price">2 500 ₽</span>
+                </div>
+                <div class="product">
+                    <h4>Товар 3</h4>
+                    <p>Описание товара 3</p>
+                    <span class="price">3 200 ₽</span>
+                </div>
             </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/250x150" alt="Товар 2">
-                <h3>Название товара 2</h3>
-                <p>Цена: 15 000 ₽</p>
-            </div>
-            <!-- Добавьте больше карточек по аналогии -->
-        </div>
+        </section>
     </main>
-    <!-- Подвал сайта -->
-    <footer class="site-footer">
-        <p>&copy; 2026 GMarket. Все права защищены.</p>
+
+    <footer>
+        <p>&copy; 2024 GMarket. Все права защищены.</p>
     </footer>
 </body>
 </html>
