@@ -1,7 +1,6 @@
 /* --- Базовые настройки и переменные --- */
 :root {
     --color-text-dark: #1a1a1a;
-    --color-bg-light: #fff8f0; /* Кремовый фон */
     --color-accent-red: #c41e3a; /* Основной красный */
     --color-accent-gold: #d4af37; /* Основной золотой */
     --color-border-light: #f5e6d7;
@@ -15,7 +14,8 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-bg-light);
+    /* НОВОЕ: Задний фон сайта - градиент от темно-серого к черному */
+    background: linear-gradient(135deg, #222 0%, #000 100%);
     color: var(--color-text-dark);
     line-height: 1.6;
 }
@@ -27,10 +27,17 @@ body {
     margin: 0 auto;
 }
 
+/* НОВОЕ: Добавляем легкую прозрачность основному блоку контента,
+чтобы он не сливался с фоном, а текст был читаемым. */
+.site-content,
+.site-header,
+.site-footer {
+    background-color: rgba(255, 255, 255, 0.05); /* Почти прозрачный белый */
+    backdrop-filter: blur(5px); /* Эффект матового стекла (опционально) */
+}
+
 /* --- Шапка и Навигация --- */
 .site-header {
-    background-color: var(--color-accent-red);
-    color: white;
     padding: 20px 0;
 }
 
@@ -104,11 +111,4 @@ body {
 
 .site-content h2 {
     text-align: center;
-}
-
-.site-footer {
-    background-color: var(--color-accent-red);
-    color: white;
-    text-align: center;
-    padding: 15px 0;
 }
