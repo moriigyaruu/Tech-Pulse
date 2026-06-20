@@ -1,11 +1,4 @@
-/* --- Базовые настройки и переменные --- */
-:root {
-    --color-text-dark: #1a1a1a;
-    --color-accent-red: #c41e3a; /* Основной красный */
-    --color-accent-gold: #d4af37; /* Основной золотой */
-    --color-border-light: #f5e6d7;
-}
-
+/* Общие стили */
 * {
     margin: 0;
     padding: 0;
@@ -13,102 +6,161 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* НОВОЕ: Задний фон сайта - градиент от темно-серого к черному */
-    background: linear-gradient(135deg, #222 0%, #000 100%);
-    color: var(--color-text-dark);
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #e6e6e6;
     line-height: 1.6;
 }
 
-/* --- Контейнер для центрирования контента --- */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* НОВОЕ: Добавляем легкую прозрачность основному блоку контента,
-чтобы он не сливался с фоном, а текст был читаемым. */
-.site-content,
-.site-header,
-.site-footer {
-    background-color: rgba(255, 255, 255, 0.05); /* Почти прозрачный белый */
-    backdrop-filter: blur(5px); /* Эффект матового стекла (опционально) */
-}
-
-/* --- Шапка и Навигация --- */
-.site-header {
-    padding: 20px 0;
-}
-
-.logo {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-.nav-main ul {
+/* Шапка */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem 2rem;
     display: flex;
-    gap: 25px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    color: #d4af37;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+nav ul {
+    display: flex;
     list-style: none;
 }
 
-.nav-main a {
+nav li {
+    margin-left: 1.5rem;
+}
+
+/* Стили кнопок навигации */
+.nav-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(45deg, #8b0000, #d4af37, #8b0000);
     color: white;
     text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-/* --- Блок кнопок (HTML) --- */
-.button-group {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-/* --- Стили кнопок (CSS) --- */
-.btn-gmarket,
-.btn-sell,
-.btn-chats,
-.btn-account {
-    padding: 12px 25px;
-    border-radius: 50px; /* Закругленные края */
-    border: none;
-    cursor: pointer;
     font-weight: bold;
-    font-size: 1rem;
-    transition: all 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Индивидуальные цвета для каждой кнопки */
-.btn-gmarket { background-color: var(--color-accent-gold); color: var(--color-text-dark); }
-.btn-sell { background-color: var(--color-accent-red); color: white; }
-.btn-chats { background-color: #3a3a3a; color: white; }
-.btn-account { background-color: #4b4b4b; color: white; }
-
-/* Анимация перелива при наведении */
-.btn-gmarket:hover,
-.btn-sell:hover,
-.btn-chats:hover,
-.btn-account:hover {
-    /* Градиент от золотого к красному и обратно */
-    background-image: linear-gradient(45deg, var(--color-accent-gold), var(--color-accent-red), var(--color-accent-gold));
-    
-    /* Для текста на темных кнопках */
-    color: white !important;
-
-    /* Эффект свечения */
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 0 0 30px rgba(196, 30, 58, 0.6);
-    
-    /* Небольшое масштабирование */
-    transform: scale(1.05);
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.5s;
 }
 
-/* --- Основной контент и Подвал --- */
-.site-content {
-    padding: 40px 0;
+.nav-btn:hover::before {
+    left: 100%;
 }
 
-.site-content h2 {
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg, #a52a2a, #ffd700, #a52a2a);
+    color: #fff9c4;
+}
+
+.nav-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Основной контент */
+main {
+    padding: 2rem;
+}
+
+.hero {
     text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(20, 20, 20, 0.7);
+    border-radius: 12px;
+    border: 1px solid #555;
+}
+
+.hero h2 {
+    color: #ffd700;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px #000;
+}
+
+.hero p {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+}
+
+.products h3 {
+    color: #d4af37;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.product {
+    background: rgba(40, 40, 40, 0.8);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #444;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.product h4 {
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+}
+
+.product p {
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.price {
+    color: #ff6b6b;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 2px solid #8b0000;
+    color: #aaa;
+    margin-top: 3rem;
 }
