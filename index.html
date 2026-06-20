@@ -3,51 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechPulse — Интернет‑маркетплейс</title>
+    <title>GameTrade — Маркетплейс игровых товаров</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <src img="https://yaart-web-alice-images.s3.yandex.net/ea569e936c5111f1aba7a2e67b579c45:1">
-        <h1>TechPulse</h1>
-        <nav>
-            <a href="#" class="nav-btn">GMarket</a>
-            <a href="#" class="nav-btn">Продать</a>
-            <a href="#" class="nav-btn">Чаты</a>
-            <a href="#" class="nav-btn">Личный кабинет</a>
-            </ul>
-        </nav>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>GameTrade</h1>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link">Главная</a>
+                <a href="#" class="nav-link">Каталог</a>
+                <a href="#" class="nav-link">Продать</a>
+                <a href="#" class="nav-link">Поддержка</a>
+            </nav>
+            <div class="user-panel">
+                <button class="btn">Войти</button>
+                <button class="btn btn-primary">Регистрация</button>
+            </div>
+        </div>
     </header>
-    <main>
-        <section class="hero">
-            <h2>Добро пожаловать на GMarket!</h2>
-            <p>Лучший маркетплейс для покупок и продаж</p>
-        </section>
 
-        <section class="products">
-            <h3>Популярные товары</h3>
-            <div class="product-grid">
-                <div class="product">
-                    <h4>Товар 1</h4>
-                    <p>Описание товара 1</p>
-                    <span class="price">1 000 ₽</span>
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="container">
+            <h2>Покупайте и продавайте игровые товары</h2>
+            <p>Безопасная сделка, быстрая поддержка, тысячи предложений</p>
+            <input type="text" class="search-input" placeholder="Найти товар...">
+        </div>
+    </section>
+
+    <!-- Категории -->
+    <section class="categories">
+        <div class="container">
+            <h3>Популярные категории</h3>
+            <div class="category-grid">
+                <div class="category-card">
+                    <h4>Аккаунты</h4>
+                    <p>5 234 предложения</p>
                 </div>
-                <div class="product">
-                    <h4>Товар 2</h4>
-                    <p>Описание товара 2</p>
-                    <span class="price">2 500 ₽</span>
+                <div class="category-card">
+                    <h4>Внутриигровая валюта</h4>
+                    <p>3 876 предложений</p>
                 </div>
-                <div class="product">
-                    <h4>Товар 3</h4>
-                    <p>Описание товара 3</p>
-                    <span class="price">3 200 ₽</span>
+                <div class="category-card">
+                    <h4>Услуги</h4>
+                    <p>2 156 предложений</p>
+                </div>
+                <div class="category-card">
+                    <h4>Предметы</h4>
+                    <p>4 521 предложение</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 GMarket. Все права защищены.</p>
+    <!-- Каталог предложений -->
+    <section class="offers">
+        <div class="container">
+            <h3>Последние предложения</h3>
+            <div class="filters">
+                <select class="filter-select">
+                    <option>Все категории</option>
+                    <option>Аккаунты</option>
+                    <option>Валюта</option>
+                </select>
+                <input type="number" class="price-input" placeholder="Цена от">
+                <input type="number" class="price-input" placeholder="Цена до">
+            </div>
+            <div class="offer-grid">
+                <!-- Пример карточки товара -->
+                <div class="offer-card">
+                    <div class="seller-info">
+                        <img src="https://via.placeholder.com/40" alt="Продавец" class="avatar">
+                        <span class="seller-name">User123</span>
+                    </div>
+                    <h4>Аккаунт WoW (EU)</h4>
+                    <p class="description">Полностью прокачанный аккаунт с топовым снаряжением</p>
+                    <div class="offer-footer">
+                        <span class="price">2 500 ₽</span>
+                        <button class="buy-btn">Купить</button>
+                    </div>
+                </div>
+                <!-- Повторить для других товаров -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 GameTrade. Все права защищены.</p>
+        </div>
     </footer>
 </body>
 </html>
