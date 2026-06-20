@@ -1,122 +1,114 @@
-/* Общие стили */
+/* --- Базовые настройки и переменные --- */
+:root {
+    --color-text-dark: #1a1a1a;
+    --color-bg-light: #fff8f0; /* Кремовый фон */
+    --color-accent-red: #c41e3a; /* Основной красный */
+    --color-accent-gold: #d4af37; /* Основной золотой */
+    --color-border-light: #f5e6d7;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    font-family: 'Georgia', serif;
-    background-color: #1a1a1a; /* Темный фон */
-    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    line-height: 1.6;
 }
 
-/* Шапка */
+/* --- Контейнер для центрирования контента --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Шапка и Навигация --- */
 .site-header {
-    background-color: #8b0000; /* Темно-красный */
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: var(--color-accent-red);
+    color: white;
+    padding: 20px 0;
 }
+
 .logo {
-    font-size: 2em;
-    color: #ffd700; /* Золото */
+    font-size: 2.5rem;
     font-weight: bold;
 }
 
-/* Блок с кнопками */
-.nav-buttons {
+.nav-main ul {
     display: flex;
-    gap: 15px;
+    gap: 25px;
+    list-style: none;
 }
 
-/* Стили для кнопок навигации */
-.nav-btn {
-    display: inline-block;
-    padding: 12px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
+.nav-main a {
+    color: white;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: 500;
+}
 
-    /* Базовый стиль кнопки */
-    background-image:
-        linear-gradient(45deg, #ffd700, #8b0000);
-    border: 2px solid transparent;
-    border-radius: 30px;
-    transition: all 0.3s ease, box-shadow 0.3s ease;
+/* --- Блок кнопок (HTML) --- */
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* --- Стили кнопок (CSS) --- */
+.btn-gmarket,
+.btn-sell,
+.btn-chats,
+.btn-account {
+    padding: 12px 25px;
+    border-radius: 50px; /* Закругленные края */
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Индивидуальные цвета для каждой кнопки */
+.btn-gmarket { background-color: var(--color-accent-gold); color: var(--color-text-dark); }
+.btn-sell { background-color: var(--color-accent-red); color: white; }
+.btn-chats { background-color: #3a3a3a; color: white; }
+.btn-account { background-color: #4b4b4b; color: white; }
+
+/* Анимация перелива при наведении */
+.btn-gmarket:hover,
+.btn-sell:hover,
+.btn-chats:hover,
+.btn-account:hover {
+    /* Градиент от золотого к красному и обратно */
+    background-image: linear-gradient(45deg, var(--color-accent-gold), var(--color-accent-red), var(--color-accent-gold));
     
-    /* Анимация текста (перелив) */
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+    /* Для текста на темных кнопках */
+    color: white !important;
 
-/* Анимация при наведении курсора */
-.nav-btn:hover {
-    /* Смещение фона для создания эффекта перелива */
-    background-position: -400px 0;
+    /* Эффект свечения */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 0 0 30px rgba(196, 30, 58, 0.6);
     
-    /* Эффект свечения/тени */
-    box-shadow: 0 0 15px rgba(255,215,0,0.7), 0 0 30px rgba(139,0,0,0.5);
-    
-    /* Небольшой подъем кнопки */
-    transform: translateY(-3px);
+    /* Небольшое масштабирование */
+    transform: scale(1.05);
 }
 
-/* Ключевой кадр для анимации градиента */
-@keyframes gradientShift {
-    0% { background-position: 0 0; }
-    100% { background-position: -400px 0; }
-}
-.nav-btn {
-    background-size: 400% 400%;
-}
-.nav-btn:hover {
-    animation: gradientShift 4s ease infinite;
-}
-
-
-/* Основное содержимое */
+/* --- Основной контент и Подвал --- */
 .site-content {
-    padding: 40px;
-}
-.site-content h1 {
-    color: #ffd700;
-}
-.site-content p {
-    color: #ccc;
+    padding: 40px 0;
 }
 
-/* Карточки товаров */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-.product-card {
-    background-color: #333;
-    border-radius: 15px;
-    padding: 20px;
+.site-content h2 {
     text-align: center;
 }
-.product-card img {
-    border-radius: 10px;
-}
-.product-card h3 {
-    color: #ffd700;
-}
-.product-card p {
-    color: #e6e6e6;
-}
 
-/* Подвал */
 .site-footer {
-    background-color: #8b0000;
-    color: #ffd700;
+    background-color: var(--color-accent-red);
+    color: white;
     text-align: center;
-    padding: 15px;
+    padding: 15px 0;
 }
