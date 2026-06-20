@@ -1,0 +1,122 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Georgia', serif;
+    background-color: #1a1a1a; /* Темный фон */
+    color: #fff;
+}
+
+/* Шапка */
+.site-header {
+    background-color: #8b0000; /* Темно-красный */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 2em;
+    color: #ffd700; /* Золото */
+    font-weight: bold;
+}
+
+/* Блок с кнопками */
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Стили для кнопок навигации */
+.nav-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    /* Базовый стиль кнопки */
+    background-image:
+        linear-gradient(45deg, #ffd700, #8b0000);
+    border: 2px solid transparent;
+    border-radius: 30px;
+    transition: all 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Анимация текста (перелив) */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Анимация при наведении курсора */
+.nav-btn:hover {
+    /* Смещение фона для создания эффекта перелива */
+    background-position: -400px 0;
+    
+    /* Эффект свечения/тени */
+    box-shadow: 0 0 15px rgba(255,215,0,0.7), 0 0 30px rgba(139,0,0,0.5);
+    
+    /* Небольшой подъем кнопки */
+    transform: translateY(-3px);
+}
+
+/* Ключевой кадр для анимации градиента */
+@keyframes gradientShift {
+    0% { background-position: 0 0; }
+    100% { background-position: -400px 0; }
+}
+.nav-btn {
+    background-size: 400% 400%;
+}
+.nav-btn:hover {
+    animation: gradientShift 4s ease infinite;
+}
+
+
+/* Основное содержимое */
+.site-content {
+    padding: 40px;
+}
+.site-content h1 {
+    color: #ffd700;
+}
+.site-content p {
+    color: #ccc;
+}
+
+/* Карточки товаров */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+.product-card {
+    background-color: #333;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+.product-card img {
+    border-radius: 10px;
+}
+.product-card h3 {
+    color: #ffd700;
+}
+.product-card p {
+    color: #e6e6e6;
+}
+
+/* Подвал */
+.site-footer {
+    background-color: #8b0000;
+    color: #ffd700;
+    text-align: center;
+    padding: 15px;
+}
