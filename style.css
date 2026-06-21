@@ -416,7 +416,7 @@ a {
         grid-template-columns: 1fr;
     }
     .sidebar {
-        display: none; /* Прячем сайдбар на мобилках */
+        display: none;
     }
     .product-card {
         grid-template-columns: 1fr;
