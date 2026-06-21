@@ -1,27 +1,30 @@
-/* Переменные для удобного управления цветом */
+/* --- ЦВЕТОВАЯ ПАЛИТРА И ПЕРЕМЕННЫЕ --- */
 :root {
-    --bg-black: #0c0a0b;       /* Основной глубокий черный фон */
-    --bg-dark-gray: #161214;  /* Более светлый фон для карточек */
-    --burgundy: #6b1224;      /* Насыщенный бордовый */
-    --burgundy-light: #8f1b33;/* Яркий бордовый для ховера */
-    --gold: #d4af37;          /* Благородное золото */
-    --gold-hover: #f3e5ab;    /* Светлое золото для ховера */
-    --text-white: #ffffff;    /* Белый текст */
-    --text-muted: #a09698;    /* Приглушенный текст */
+    --bg-black: #0a0809;        /* Глубокий черный фон */
+    --bg-dark-gray: #140f11;   /* Фон для карточек и шапки */
+    --bg-card: #1c1518;        /* Внутренний фон элементов */
+    --burgundy: #5c0b1a;       /* Элегантный бордовый */
+    --burgundy-light: #801227; /* Яркий бордовый для ховеров */
+    --gold: #cfa830;           /* Золотой акцент */
+    --gold-light: #e6c55c;     /* Светлое золото для ховеров */
+    --text-white: #ffffff;
+    --text-muted: #9e9194;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Базовые настройки */
+/* --- БАЗОВЫЕ СТИЛИ --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
     background-color: var(--bg-black);
     color: var(--text-white);
-    font-family: 'Inter', sans-serif;
     line-height: 1.5;
+    overflow-x: hidden;
 }
 
 .container {
@@ -31,7 +34,7 @@ body {
     padding: 0 20px;
 }
 
-/* Шапка сайта */
+/* --- ШАПКА САЙТА --- */
 .header {
     background-color: var(--bg-dark-gray);
     border-bottom: 2px solid var(--burgundy);
@@ -49,7 +52,7 @@ body {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--text-white);
     text-decoration: none;
@@ -61,21 +64,20 @@ body {
     color: var(--gold);
 }
 
-/* Улучшенная поисковая строка */
 .search-bar {
     display: flex;
     flex-grow: 1;
-    max-width: 500px;
-    background-color: #221b1d;
-    border: 1px solid var(--burgundy);
+    max-width: 450px;
+    background-color: rgba(28, 21, 24, 0.8);
+    border: 1px solid rgba(207, 168, 48, 0.3);
     border-radius: 8px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .search-bar:focus-within {
     border-color: var(--gold);
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 12px rgba(207, 168, 48, 0.25);
 }
 
 .search-bar input {
@@ -92,17 +94,16 @@ body {
     background-color: var(--burgundy);
     color: var(--text-white);
     border: none;
-    padding: 0 20px;
+    padding: 0 18px;
     cursor: pointer;
     font-weight: 500;
-    transition: background 0.2s ease;
+    transition: var(--transition);
 }
 
 .search-bar button:hover {
     background-color: var(--burgundy-light);
 }
 
-/* Навигация */
 .nav-menu {
     display: flex;
     gap: 20px;
@@ -111,30 +112,53 @@ body {
 .nav-link {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: var(--transition);
 }
 
 .nav-link:hover, .nav-link.active {
     color: var(--gold);
 }
 
-/* Кнопки авторизации и интерфейса */
+/* Виджет профиля после авторизации */
+.user-profile-widget {
+    display: none; 
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-name {
+    font-weight: 600;
+    color: var(--gold);
+    font-size: 14px;
+}
+
+.user-balance {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* Кнопки интерфейса */
 .auth-buttons {
     display: flex;
-    gap: 12px;
+    gap: 10px;
+    align-items: center;
 }
 
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 8px 18px;
     border-radius: 6px;
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: var(--transition);
     text-align: center;
 }
 
@@ -147,7 +171,8 @@ body {
 .btn-primary:hover {
     background-color: var(--burgundy-light);
     border-color: var(--burgundy-light);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(128, 18, 39, 0.4);
 }
 
 .btn-secondary {
@@ -157,137 +182,416 @@ body {
 }
 
 .btn-secondary:hover {
-    background-color: rgba(212, 175, 55, 0.1);
-    color: var(--gold-hover);
-    border-color: var(--gold-hover);
+    background-color: rgba(207, 168, 48, 0.1);
+    color: var(--gold-light);
+    border-color: var(--gold-light);
+    transform: translateY(-2px);
 }
 
-/* Промо-баннер (Hero) */
+.btn-logout {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-muted);
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.btn-logout:hover {
+    border-color: var(--burgundy-light);
+    color: var(--text-white);
+    background-color: var(--burgundy-light);
+}
+
+/* --- ГЛАВНЫЙ БАННЕР --- */
 .hero {
-    background: linear-gradient(135deg, #161214 0%, #3a0a14 100%);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-    padding: 60px 0;
-    margin-bottom: 40px;
+    background: linear-gradient(135deg, #140f11 0%, #3a0812 100%);
+    border-bottom: 1px solid rgba(207, 168, 48, 0.15);
+    padding: 40px 0;
+    margin-bottom: 30px;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .hero-content h1 {
-    font-size: 42px;
+    font-size: 34px;
     font-weight: 700;
-    margin-bottom: 15px;
-    color: var(--text-white);
+    margin-bottom: 10px;
+    line-height: 1.2;
 }
 
-.hero-content p {
-    font-size: 16px;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin-bottom: 25px;
-}
-
-.hero-stats {
-    display: flex;
-    gap: 30px;
-}
-
-.stat-item {
-    font-size: 14px;
-    color: var(--text-muted);
-}
-
-.stat-item span {
-    display: block;
-    font-size: 24px;
-    font-weight: 700;
+.hero-content h1 span {
     color: var(--gold);
 }
 
-/* Сетка каталога игр */
+.hero-content p {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 600px;
+}
+
+/* --- СЛАЙДЕР ИГР --- */
+.games-section {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 .section-title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
-    margin-bottom: 25px;
     border-left: 4px solid var(--gold);
     padding-left: 12px;
 }
 
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 25px;
+/* Стрелочки слайдера */
+.slider-controls {
+    display: flex;
+    gap: 10px;
 }
 
-/* Удобная карточка игры */
+.slider-arrow {
+    background-color: var(--bg-card);
+    border: 1px solid var(--burgundy);
+    color: var(--gold);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider-arrow:hover {
+    background-color: var(--burgundy);
+    color: var(--text-white);
+    border-color: var(--burgundy);
+}
+
+/* Контейнеры для горизонтальной прокрутки */
+.games-slider-outer {
+    overflow: hidden;
+    width: 100%;
+}
+
+.games-slider-inner {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+}
+
+.games-slider-inner::-webkit-scrollbar {
+    display: none;
+}
+
+/* Компактные карточки товаров */
 .game-card {
+    flex: 0 0 180px;
     background-color: var(--bg-dark-gray);
-    border: 1px solid rgba(107, 18, 36, 0.5);
+    border: 1px solid rgba(107, 18, 36, 0.4);
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--transition);
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .game-card:hover {
     transform: translateY(-5px);
     border-color: var(--gold);
-    box-shadow: 0 8px 25px rgba(214, 175, 55, 0.15);
+    box-shadow: 0 6px 20px rgba(207, 168, 48, 0.15);
 }
 
-.game-image {
-    height: 150px;
+.game-card.active {
+    border-color: var(--gold);
+    background-color: rgba(207, 168, 48, 0.05);
+}
+
+/* Иконки игр */
+.game-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
     overflow: hidden;
-    position: relative;
+    border: 2px solid var(--burgundy);
+    margin-bottom: 12px;
+    transition: var(--transition);
+    background-color: #1a1517;
 }
 
-.game-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.game-card:hover .game-image img {
+.game-card:hover .game-icon-container {
+    border-color: var(--gold);
     transform: scale(1.05);
 }
 
-.game-info {
-    padding: 20px;
+.game-icon-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.game-info h3 {
-    font-size: 18px;
+.game-card h3 {
+    font-size: 14px;
     font-weight: 600;
-    margin-bottom: 5px;
     color: var(--text-white);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
 .offers-count {
-    font-size: 14px;
+    font-size: 11px;
     color: var(--gold);
     font-weight: 500;
-    margin-bottom: 15px;
 }
 
-.game-tags {
+/* --- ТАБЛИЦА ПРЕДЛОЖЕНИЙ --- */
+.offers-section {
+    background-color: var(--bg-dark-gray);
+    border: 1px solid rgba(92, 11, 26, 0.5);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 60px;
+}
+
+.offers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.offers-table th {
+    color: var(--gold);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px;
+    border-bottom: 2px solid var(--burgundy);
+}
+
+.offers-table td {
+    padding: 15px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.offers-table tr:hover td {
+    background-color: rgba(92, 11, 26, 0.15);
+}
+
+.seller-info {
     display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
 }
 
-.game-tags span {
-    background-color: rgba(107, 18, 36, 0.3);
-    color: #e2b3be;
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    border: 1px solid rgba(107, 18, 36, 0.6);
+.seller-avatar {
+    width: 32px;
+    height: 32px;
+    background-color: var(--burgundy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 12px;
+    color: var(--gold);
 }
 
-/* Подвал сайта */
+.offer-price {
+    font-weight: 700;
+    color: var(--gold);
+}
+
+/* --- ОКНО ВХОДА И РЕГИСТРАЦИИ (МОДАЛЬНОЕ) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-container {
+    background-color: var(--bg-dark-gray);
+    border: 2px solid var(--burgundy);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    position: relative;
+    transform: scale(0.9);
+    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(92, 11, 26, 0.5);
+}
+
+.modal-overlay.active .modal-container {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--gold);
+}
+
+.modal-tabs {
+    display: flex;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 25px;
+}
+
+.modal-tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: var(--transition);
+}
+
+.modal-tab.active {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-card);
+    border: 1px solid rgba(207, 168, 48, 0.2);
+    border-radius: 8px;
+    color: var(--text-white);
+    font-size: 14px;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 8px rgba(207, 168, 48, 0.2);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--burgundy);
+    color: var(--text-white);
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.submit-btn:hover {
+    background-color: var(--burgundy-light);
+    box-shadow: 0 4px 15px rgba(128, 18, 39, 0.5);
+}
+
+.form-error {
+    color: #ff4a4a;
+    font-size: 12px;
+    margin-top: 10px;
+    display: none;
+    text-align: center;
+}
+
+.form-success {
+    color: #4aff53;
+    font-size: 12px;
+    margin-top: 10px;
+    display: none;
+    text-align: center;
+}
+
+/* Уведомление на экране (Toast) */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--burgundy);
+    border: 1px solid var(--gold);
+    color: var(--text-white);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    z-index: 2000;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.toast.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* --- ПОДВАЛ (FOOTER) --- */
 .footer {
-    background-color: #080607;
-    border-top: 1px solid #221b1d;
+    background-color: #050404;
+    border-top: 1px solid rgba(92, 11, 26, 0.3);
     padding: 30px 0;
-    margin-top: 60px;
     font-size: 13px;
     color: var(--text-muted);
 }
@@ -304,14 +608,14 @@ body {
     color: var(--text-muted);
     text-decoration: none;
     margin-left: 20px;
-    transition: color 0.2s ease;
+    transition: var(--transition);
 }
 
 .footer-links a:hover {
     color: var(--gold);
 }
 
-/* Адаптивность для мобильных устройств */
+/* --- АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ СМАРТФОНОВ --- */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
@@ -324,8 +628,12 @@ body {
     .nav-menu {
         justify-content: center;
     }
-    .auth-buttons {
+    .auth-buttons, .user-profile-widget {
         justify-content: center;
+    }
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
     }
     .footer-container {
         flex-direction: column;
