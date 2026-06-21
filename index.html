@@ -3,100 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameTrade — Маркетплейс игровых товаров</title>
+    <title>GoldMarket — Маркетплейс игровых валют и услуг</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Шапка сайта -->
+
     <header class="header">
-        <div class="container">
-            <div class="logo">
-                <h1>GameTrade</h1>
-            </div>
+        <div class="container header-container">
+            <a href="#" class="logo">Gold<span>Market</span></a>
             <nav class="nav">
-                <a href="#" class="nav-link">Главная</a>
-                <a href="#" class="nav-link">Каталог</a>
-                <a href="#" class="nav-link">Продать</a>
-                <a href="#" class="nav-link">Поддержка</a>
+                <a href="#" class="nav-link active">Главная</a>
+                <a href="#" class="nav-link">Гарантии</a>
+                <a href="#" class="nav-link">Отзывы</a>
+                <a href="#" class="nav-link">Помощь</a>
             </nav>
-            <div class="user-panel">
-                <button class="btn">Войти</button>
-                <button class="btn btn-primary">Регистрация</button>
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-secondary">Войти</a>
+                <a href="#" class="btn btn-primary">Регистрация</a>
             </div>
         </div>
     </header>
 
-    <!-- Главный баннер -->
     <section class="hero">
-        <div class="container">
-            <h2>Покупайте и продавайте игровые товары</h2>
-            <p>Безопасная сделка, быстрая поддержка, тысячи предложений</p>
-            <input type="text" class="search-input" placeholder="Найти товар...">
-        </div>
-    </section>
-
-    <!-- Категории -->
-    <section class="categories">
-        <div class="container">
-            <h3>Популярные категории</h3>
-            <div class="category-grid">
-                <div class="category-card">
-                    <h4>Аккаунты</h4>
-                    <p>5 234 предложения</p>
-                </div>
-                <div class="category-card">
-                    <h4>Внутриигровая валюта</h4>
-                    <p>3 876 предложений</p>
-                </div>
-                <div class="category-card">
-                    <h4>Услуги</h4>
-                    <p>2 156 предложений</p>
-                </div>
-                <div class="category-card">
-                    <h4>Предметы</h4>
-                    <p>4 521 предложение</p>
-                </div>
+        <div class="container hero-container">
+            <h1>Биржа игровых ценностей <br><span>Прямо между игроками</span></h1>
+            <p>Покупайте золото, аккаунты, ключи и услуги без посредников. Безопасно, быстро, надежно.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск игры, товара или услуги...">
+                <button type="button"><i class="fa-solid fa-magnifying-glass"></i> Найти</button>
             </div>
         </div>
     </section>
 
-    <!-- Каталог предложений -->
-    <section class="offers">
-        <div class="container">
-            <h3>Последние предложения</h3>
-            <div class="filters">
-                <select class="filter-select">
-                    <option>Все категории</option>
-                    <option>Аккаунты</option>
-                    <option>Валюта</option>
-                </select>
-                <input type="number" class="price-input" placeholder="Цена от">
-                <input type="number" class="price-input" placeholder="Цена до">
+    <main class="container main-content">
+        
+        <aside class="sidebar">
+            <h3 class="sidebar-title"><i class="fa-solid fa-gamepad"></i> Популярные игры</h3>
+            <ul class="game-list">
+                <li><a href="#" class="game-item"><img src="https://via.placeholder.com/24" alt="game"> World of Warcraft</a></li>
+                <li><a href="#" class="game-item active"><img src="https://via.placeholder.com/24" alt="game"> Counter-Strike 2</a></li>
+                <li><a href="#" class="game-item"><img src="https://via.placeholder.com/24" alt="game"> Dota 2</a></li>
+                <li><a href="#" class="game-item"><img src="https://via.placeholder.com/24" alt="game"> Genshin Impact</a></li>
+                <li><a href="#" class="game-item"><img src="https://via.placeholder.com/24" alt="game"> Roblox</a></li>
+                <li><a href="#" class="game-item"><img src="https://via.placeholder.com/24" alt="game"> GTA V Online</a></li>
+                <li><a href="#" class="game-item"><img src="https://via.placeholder.com/24" alt="game"> Lineage 2</a></li>
+            </ul>
+        </aside>
+
+        <section class="offers-section">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-fire"></i> Актуальные предложения</h2>
+                <div class="filter-tabs">
+                    <button class="tab-btn active">Все</button>
+                    <button class="tab-btn">Валюта</button>
+                    <button class="tab-btn">Аккаунты</button>
+                    <button class="tab-btn">Услуги</button>
+                </div>
             </div>
-            <div class="offer-grid">
-                <!-- Пример карточки товара -->
-                <div class="offer-card">
-                    <div class="seller-info">
-                        <img src="https://via.placeholder.com/40" alt="Продавец" class="avatar">
-                        <span class="seller-name">User123</span>
+
+            <div class="products-grid">
+                
+                <div class="product-card">
+                    <div class="product-user">
+                        <span class="user-status online"></span>
+                        <span class="username">Arthas_PvP</span>
+                        <span class="rating"><i class="fa-solid fa-star"></i> 4.9 (120)</span>
                     </div>
-                    <h4>Аккаунт WoW (EU)</h4>
-                    <p class="description">Полностью прокачанный аккаунт с топовым снаряжением</p>
-                    <div class="offer-footer">
-                        <span class="price">2 500 ₽</span>
-                        <button class="buy-btn">Купить</button>
+                    <div class="product-info">
+                        <span class="category-badge">Валюта</span>
+                        <h4 class="product-title">100 000 Золота (WoW Dragonflight) — Быстрая доставка</h4>
+                    </div>
+                    <div class="product-price-block">
+                        <div class="price">450 ₽</div>
+                        <a href="#" class="btn-buy">Купить</a>
                     </div>
                 </div>
-                <!-- Повторить для других товаров -->
-            </div>
-        </div>
-    </section>
 
-    <!-- Подвал -->
+                <div class="product-card item-premium">
+                    <div class="product-user">
+                        <span class="user-status online"></span>
+                        <span class="username">SkinKing</span>
+                        <span class="rating"><i class="fa-solid fa-star"></i> 5.0 (1.4k)</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="category-badge">Аккаунты</span>
+                        <h4 class="product-title">Личный аккаунт CS2 | Нож-бабочка | Prime-статус</h4>
+                    </div>
+                    <div class="product-price-block">
+                        <div class="price">14 900 ₽</div>
+                        <a href="#" class="btn-buy">Купить</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-user">
+                        <span class="user-status offline"></span>
+                        <span class="username">BoosterBro</span>
+                        <span class="rating"><i class="fa-solid fa-star"></i> 4.7 (43)</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="category-badge">Услуги</span>
+                        <h4 class="product-title">Калибровка + Буст до 4000 MMR в Dota 2</h4>
+                    </div>
+                    <div class="product-price-block">
+                        <div class="price">1 200 ₽</div>
+                        <a href="#" class="btn-buy">Купить</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-user">
+                        <span class="user-status online"></span>
+                        <span class="username">PaimonShop</span>
+                        <span class="rating"><i class="fa-solid fa-star"></i> 5.0 (310)</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="category-badge">Валюта</span>
+                        <h4 class="product-title">6480 Кристаллов Сотворения по UID (Genshin)</h4>
+                    </div>
+                    <div class="product-price-block">
+                        <div class="price">6 100 ₽</div>
+                        <a href="#" class="btn-buy">Купить</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 GameTrade. Все права защищены.</p>
+        <div class="container footer-container">
+            <div class="footer-info">
+                <a href="#" class="logo">Gold<span>Market</span></a>
+                <p>Крупнейший безопасный маркетплейс игровых услуг. Все сделки защищены гарантом.</p>
+            </div>
+            <div class="footer-links">
+                <h4>О компании</h4>
+                <a href="#">О нас</a>
+                <a href="#">Правила биржи</a>
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+            <div class="footer-links">
+                <h4>Поддержка</h4>
+                <a href="#">Техподдержка 24/7</a>
+                <a href="#">Разрешение споров</a>
+                <a href="#">База знаний</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GoldMarket. Все права защищены. Разработано для демонстрации.</p>
         </div>
     </footer>
+
 </body>
 </html>
