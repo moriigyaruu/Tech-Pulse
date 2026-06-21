@@ -3,181 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechPulse — Премиальный маркетплейс игровых услуг</title>
+    <title>GamerMarket — Торговая площадка игровых ценностей</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header class="header">
         <div class="container header-container">
-            <a href="#" class="logo">Tech<span>Pulse</span></a>
-            <nav class="nav">
-                <a href="#" class="nav-link active"><i class="fa-solid fa-house"></i> Главная</a>
-                <a href="#" class="nav-link"><i class="fa-solid fa-shield-halved"></i> Гарантии</a>
-                <a href="#" class="nav-link"><i class="fa-solid fa-star"></i> Отзывы</a>
-                <a href="#" class="nav-link"><i class="fa-solid fa-headset"></i> Поддержка</a>
+            <a href="#" class="logo">Gamer<span>Market</span></a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск игр, услуг, предметов...">
+                <button type="button">Найти</button>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active">Каталог</a>
+                <a href="#" class="nav-link">Гарантии</a>
+                <a href="#" class="nav-link">Отзывы</a>
+                <a href="#" class="nav-link">Поддержка</a>
             </nav>
+
             <div class="auth-buttons">
-                <a href="#" class="btn btn-secondary">Войти</a>
-                <a href="#" class="btn btn-primary">Регистрация</a>
+                <a href="#" class="btn btn-secondary">Продать</a>
+                <a href="#" class="btn btn-primary">Войти</a>
             </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container hero-container">
-            <div class="hero-badge"><i class="fa-solid fa-bolt"></i> Безопасные сделки под защитой гаранта</div>
-            <h1>Игровой маркетплейс нового поколения</h1>
-            <p>Покупайте игровую валюту, ценные аккаунты и услуги бустинга напрямую у игроков без переплат.</p>
-            <div class="search-bar">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" placeholder="Поиск любимой игры, нужного товара или услуги...">
-                <button type="button">Найти</button>
+            <div class="hero-content">
+                <h1>Биржа игровых ценностей</h1>
+                <p>Покупай и продавай аккаунты, валюту, ключи и услуги напрямую между игроками. Безопасно, быстро и с гарантией.</p>
+                <div class="hero-stats">
+                    <div class="stat-item"><span>150+</span> популярных игр</div>
+                    <div class="stat-item"><span>500к+</span> успешных сделок</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <main class="container main-content">
+    <main class="main-content container">
+        <h2 class="section-title">Популярные игры</h2>
         
-        <aside class="sidebar">
-            <h3 class="sidebar-title"><i class="fa-solid fa-gamepad text-gold"></i> Выберите игру</h3>
-            <ul class="game-list">
-                <li>
-                    <a href="#" class="game-item active">
-                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=40&h=40&q=80" alt="WoW" class="game-img">
-                        <span class="game-name">World of Warcraft</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="game-item">
-                        <img src="https://images.unsplash.com/photo-1553481187-be93c21490a9?auto=format&fit=crop&w=40&h=40&q=80" alt="CS2" class="game-img">
-                        <span class="game-name">Counter-Strike 2</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="game-item">
-                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=40&h=40&q=80" alt="Dota 2" class="game-img">
-                        <span class="game-name">Dota 2</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="game-item">
-                        <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=40&h=40&q=80" alt="Genshin" class="game-img">
-                        <span class="game-name">Genshin Impact</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="game-item">
-                        <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=40&h=40&q=80" alt="Roblox" class="game-img">
-                        <span class="game-name">Roblox</span>
-                    </a>
-                </li>
-            </ul>
-        </aside>
-
-        <section class="offers-section">
-            <div class="section-header">
-                <h2><i class="fa-solid fa-fire text-gold"></i> Актуальные лоты</h2>
-                <div class="filter-tabs">
-                    <button class="tab-btn active">Все категории</button>
-                    <button class="tab-btn"><i class="fa-solid fa-coins"></i> Валюта</button>
-                    <button class="tab-btn"><i class="fa-solid fa-user-shield"></i> Аккаунты</button>
-                    <button class="tab-btn"><i class="fa-solid fa-wand-magic-sparkles"></i> Услуги</button>
+        <div class="games-grid">
+            <div class="game-card">
+                <div class="game-image">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400" alt="Counter-Strike 2">
+                </div>
+                <div class="game-info">
+                    <h3>Counter-Strike 2</h3>
+                    <p class="offers-count">1,420 предложений</p>
+                    <div class="game-tags">
+                        <span>Скины</span>
+                        <span>Аккаунты</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="products-grid">
-                
-                <div class="product-card">
-                    <div class="product-main">
-                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=60&h=60&q=80" alt="WoW" class="product-game-icon">
-                        <div class="product-details">
-                            <span class="category-badge badge-gold">Валюта</span>
-                            <h4 class="product-title">150.000 Gold | Чистое золото | Моментальная передача из рук в руки</h4>
-                        </div>
-                    </div>
-                    <div class="product-user">
-                        <div class="user-meta">
-                            <span class="user-status online"></span>
-                            <span class="username">Arthas_PvP</span>
-                        </div>
-                        <span class="rating"><i class="fa-solid fa-star"></i> 4.9 (120 отзывов)</span>
-                    </div>
-                    <div class="product-action">
-                        <div class="price">490 ₽</div>
-                        <a href="#" class="btn-buy">Купить лот</a>
+            <div class="game-card">
+                <div class="game-image">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=400" alt="Dota 2">
+                </div>
+                <div class="game-info">
+                    <h3>Dota 2</h3>
+                    <p class="offers-count">850 предложений</p>
+                    <div class="game-tags">
+                        <span>Предметы</span>
+                        <span>Буст</span>
                     </div>
                 </div>
-
-                <div class="product-card item-premium">
-                    <div class="product-main">
-                        <img src="https://images.unsplash.com/photo-1553481187-be93c21490a9?auto=format&fit=crop&w=60&h=60&q=80" alt="CS" class="product-game-icon">
-                        <div class="product-details">
-                            <span class="category-badge badge-burgundy">Аккаунты</span>
-                            <h4 class="product-title">Личный жирный аккаунт CS2 [Prime] + Нож-бабочка (Градиент)</h4>
-                        </div>
-                    </div>
-                    <div class="product-user">
-                        <div class="user-meta">
-                            <span class="user-status online"></span>
-                            <span class="username">SkinKing_CS</span>
-                        </div>
-                        <span class="rating"><i class="fa-solid fa-star"></i> 5.0 (1,3к отзывов)</span>
-                    </div>
-                    <div class="product-action">
-                        <div class="price">18 500 ₽</div>
-                        <a href="#" class="btn-buy">Купить лот</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-main">
-                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=60&h=60&q=80" alt="Dota" class="product-game-icon">
-                        <div class="product-details">
-                            <span class="category-badge badge-purple">Услуги</span>
-                            <h4 class="product-title">Качественный буст MMR от топ-500 игрока до Immortal</h4>
-                        </div>
-                    </div>
-                    <div class="product-user">
-                        <div class="user-meta">
-                            <span class="user-status offline"></span>
-                            <span class="username">BoosterImmortal</span>
-                        </div>
-                        <span class="rating"><i class="fa-solid fa-star"></i> 4.8 (34 отзыва)</span>
-                    </div>
-                    <div class="product-action">
-                        <div class="price">990 ₽</div>
-                        <a href="#" class="btn-buy">Купить лот</a>
-                    </div>
-                </div>
-
             </div>
-        </section>
+
+            <div class="game-card">
+                <div class="game-image">
+                    <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&q=80&w=400" alt="Roblox">
+                </div>
+                <div class="game-info">
+                    <h3>Roblox</h3>
+                    <p class="offers-count">3,110 предложений</p>
+                    <div class="game-tags">
+                        <span>Робуксы</span>
+                        <span>Донат</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-image">
+                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=400" alt="Genshin Impact">
+                </div>
+                <div class="game-info">
+                    <h3>Genshin Impact</h3>
+                    <p class="offers-count">930 предложений</p>
+                    <div class="game-tags">
+                        <span>Аккаунты</span>
+                        <span>Кристаллы</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-image">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=400" alt="World of Warcraft">
+                </div>
+                <div class="game-info">
+                    <h3>World of Warcraft</h3>
+                    <p class="offers-count">540 предложений</p>
+                    <div class="game-tags">
+                        <span>Золото</span>
+                        <span>Таймкарты</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-image">
+                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80&w=400" alt="Brawl Stars">
+                </div>
+                <div class="game-info">
+                    <h3>Brawl Stars</h3>
+                    <p class="offers-count">2,150 предложений</p>
+                    <div class="game-tags">
+                        <span>Гемы</span>
+                        <span>Прокачка</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer">
         <div class="container footer-container">
-            <div class="footer-info">
-                <a href="#" class="logo">Tech<span>Pulse</span></a>
-                <p>Торговая площадка игровых товаров. Все финансовые транзакции защищены сквозным шифрованием и удерживаются гарантом до подтверждения выполнения.</p>
-            </div>
+            <p>&copy; 2026 GamerMarket. Все права защищены. Данный сайт является демонстрационным интерфейсом.</p>
             <div class="footer-links">
-                <h4>Навигация</h4>
-                <a href="#">О проекте</a>
+                <a href="#">Политика конфиденциальности</a>
                 <a href="#">Пользовательское соглашение</a>
-                <a href="#">Политика возвратов</a>
             </div>
-            <div class="footer-links">
-                <h4>Контакты</h4>
-                <a href="#">Служба поддержки арбитража</a>
-                <a href="#">Сотрудничество</a>
-                <a href="#">Мы в Telegram</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 TechPulse Marketplace. Все права защищены.</p>
         </div>
     </footer>
 
