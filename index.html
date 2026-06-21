@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GamerMarket — Торговая площадка игровых ценностей</title>
-    <link rel="stylesheet" href="style.css">
+    <title>GamerMarket — Игровой Маркетплейс</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -22,12 +23,21 @@
                 <a href="#" class="nav-link active">Каталог</a>
                 <a href="#" class="nav-link">Гарантии</a>
                 <a href="#" class="nav-link">Отзывы</a>
-                <a href="#" class="nav-link">Поддержка</a>
             </nav>
 
-            <div class="auth-buttons">
-                <a href="#" class="btn btn-secondary">Продать</a>
-                <a href="#" class="btn btn-primary">Войти</a>
+            <div class="auth-box">
+                <div class="user-profile-widget" id="userProfileWidget">
+                    <div class="user-info">
+                        <div class="user-name" id="displayUsername">Player_One</div>
+                        <div class="user-balance" id="displayBalance">Баланс: 1,500 ₽</div>
+                    </div>
+                    <button class="btn btn-logout" onclick="logout()">Выйти</button>
+                </div>
+
+                <div class="auth-buttons" id="authButtons">
+                    <button class="btn btn-secondary" onclick="openAuthModal('register')">Регистрация</button>
+                    <button class="btn btn-primary" onclick="openAuthModal('login')">Войти</button>
+                </div>
             </div>
         </div>
     </header>
@@ -35,115 +45,309 @@
     <section class="hero">
         <div class="container hero-container">
             <div class="hero-content">
-                <h1>Биржа игровых ценностей</h1>
-                <p>Покупай и продавай аккаунты, валюту, ключи и услуги напрямую между игроками. Безопасно, быстро и с гарантией.</p>
-                <div class="hero-stats">
-                    <div class="stat-item"><span>150+</span> популярных игр</div>
-                    <div class="stat-item"><span>500к+</span> успешных сделок</div>
-                </div>
+                <h1>Торговля игровыми <span>ценностями</span></h1>
+                <p>Безопасный рынок игровых аккаунтов, валюты и буста. Продавайте ненужное, покупайте с гарантией возврата средств.</p>
             </div>
         </div>
     </section>
 
-    <main class="main-content container">
-        <h2 class="section-title">Популярные игры</h2>
-        
-        <div class="games-grid">
-            <div class="game-card">
-                <div class="game-image">
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=400" alt="Counter-Strike 2">
-                </div>
-                <div class="game-info">
-                    <h3>Counter-Strike 2</h3>
-                    <p class="offers-count">1,420 предложений</p>
-                    <div class="game-tags">
-                        <span>Скины</span>
-                        <span>Аккаунты</span>
-                    </div>
+    <main class="container">
+        <section class="games-section">
+            <div class="section-header">
+                <h2 class="section-title">Категории игр</h2>
+                <div class="slider-controls">
+                    <button class="slider-arrow" onclick="scrollSlider(-200)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="slider-arrow" onclick="scrollSlider(200)"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
             </div>
 
-            <div class="game-card">
-                <div class="game-image">
-                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=400" alt="Dota 2">
-                </div>
-                <div class="game-info">
-                    <h3>Dota 2</h3>
-                    <p class="offers-count">850 предложений</p>
-                    <div class="game-tags">
-                        <span>Предметы</span>
-                        <span>Буст</span>
+            <div class="games-slider-outer">
+                <div class="games-slider-inner" id="gamesSlider">
+                    <div class="game-card active" onclick="selectGame('roblox', this)">
+                        <div class="game-icon-container">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/4715235893463907414_0" alt="Roblox">
+                        </div>
+                        <h3>Roblox</h3>
+                        <p class="offers-count">3,110 предл.</p>
                     </div>
-                </div>
-            </div>
 
-            <div class="game-card">
-                <div class="game-image">
-                    <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&q=80&w=400" alt="Roblox">
-                </div>
-                <div class="game-info">
-                    <h3>Roblox</h3>
-                    <p class="offers-count">3,110 предложений</p>
-                    <div class="game-tags">
-                        <span>Робуксы</span>
-                        <span>Донат</span>
+                    <div class="game-card" onclick="selectGame('cs2', this)">
+                        <div class="game-icon-container">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/10225630752074456564_0" alt="CS2">
+                        </div>
+                        <h3>Counter-Strike 2</h3>
+                        <p class="offers-count">1,420 предл.</p>
                     </div>
-                </div>
-            </div>
 
-            <div class="game-card">
-                <div class="game-image">
-                    <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&q=80&w=400" alt="Genshin Impact">
-                </div>
-                <div class="game-info">
-                    <h3>Genshin Impact</h3>
-                    <p class="offers-count">930 предложений</p>
-                    <div class="game-tags">
-                        <span>Аккаунты</span>
-                        <span>Кристаллы</span>
+                    <div class="game-card" onclick="selectGame('dota2', this)">
+                        <div class="game-icon-container">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/10901801162965002824_0" alt="Dota 2">
+                        </div>
+                        <h3>Dota 2</h3>
+                        <p class="offers-count">850 предл.</p>
                     </div>
-                </div>
-            </div>
 
-            <div class="game-card">
-                <div class="game-image">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=400" alt="World of Warcraft">
-                </div>
-                <div class="game-info">
-                    <h3>World of Warcraft</h3>
-                    <p class="offers-count">540 предложений</p>
-                    <div class="game-tags">
-                        <span>Золото</span>
-                        <span>Таймкарты</span>
+                    <div class="game-card" onclick="selectGame('genshin', this)">
+                        <div class="game-icon-container">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/9379624216540106513_0" alt="Genshin Impact">
+                        </div>
+                        <h3>Genshin Impact</h3>
+                        <p class="offers-count">930 предл.</p>
                     </div>
-                </div>
-            </div>
 
-            <div class="game-card">
-                <div class="game-image">
-                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80&w=400" alt="Brawl Stars">
-                </div>
-                <div class="game-info">
-                    <h3>Brawl Stars</h3>
-                    <p class="offers-count">2,150 предложений</p>
-                    <div class="game-tags">
-                        <span>Гемы</span>
-                        <span>Прокачка</span>
+                    <div class="game-card" onclick="selectGame('wow', this)">
+                        <div class="game-icon-container">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/9416538220181191926_0" alt="WoW">
+                        </div>
+                        <h3>World of Warcraft</h3>
+                        <p class="offers-count">540 предл.</p>
+                    </div>
+
+                    <div class="game-card" onclick="selectGame('brawl', this)">
+                        <div class="game-icon-container">
+                            <img src="http://googleusercontent.com/image_collection/image_retrieval/17083184048932367924_0" alt="Brawl Stars">
+                        </div>
+                        <h3>Brawl Stars</h3>
+                        <p class="offers-count">2,150 предл.</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="offers-section">
+            <h2 class="section-title" id="offersTitle">Предложения по Roblox</h2>
+            <table class="offers-table">
+                <thead>
+                    <tr>
+                        <th>Продавец</th>
+                        <th>Описание лота</th>
+                        <th>Наличие</th>
+                        <th>Цена</th>
+                    </tr>
+                </thead>
+                <tbody id="offersTableBody">
+                    </tbody>
+            </table>
+        </section>
     </main>
+
+    <div class="toast" id="toast">Действие успешно выполнено!</div>
+
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-container">
+            <span class="close-modal" onclick="closeAuthModal()">&times;</span>
+            
+            <div class="modal-tabs">
+                <div class="modal-tab active" id="tabLogin" onclick="switchTab('login')">Вход</div>
+                <div class="modal-tab" id="tabRegister" onclick="switchTab('register')">Регистрация</div>
+            </div>
+
+            <form id="authForm" onsubmit="handleAuthSubmit(event)">
+                <div class="form-group">
+                    <label for="authUsername">Имя пользователя (Логин)</label>
+                    <input type="text" id="authUsername" required placeholder="Введите логин">
+                </div>
+                <div class="form-group">
+                    <label for="authPassword">Пароль</label>
+                    <input type="password" id="authPassword" required placeholder="Введите пароль">
+                </div>
+                
+                <div class="form-error" id="formError">Неверный логин или пароль</div>
+                <div class="form-success" id="formSuccess">Регистрация успешна!</div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">Войти</button>
+            </form>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container footer-container">
-            <p>&copy; 2026 GamerMarket. Все права защищены. Данный сайт является демонстрационным интерфейсом.</p>
+            <p>&copy; 2026 GamerMarket. Безопасные сделки. Все права защищены.</p>
             <div class="footer-links">
-                <a href="#">Политика конфиденциальности</a>
-                <a href="#">Пользовательское соглашение</a>
+                <a href="#">Контакты</a>
+                <a href="#">Помощь</a>
+                <a href="#">Соглашение</a>
             </div>
         </div>
     </footer>
 
+    <script>
+        const gameOffers = {
+            roblox: [
+                { seller: "RobuxBoss", desc: "1000 Робуксов быстрым курсом через Group Payout", stock: "15,000 R$", price: "720 ₽" },
+                { seller: "PetSimPro", desc: "Эксклюзивные питомцы Pet Simulator 99", stock: "5 шт.", price: "350 ₽" },
+                { seller: "AdopMeTrader", desc: "FR Frost Dragon (Fly Ride) чистый", stock: "1 шт.", price: "4,500 ₽" }
+            ],
+            cs2: [
+                { seller: "SkinsGamer", desc: "AK-47 | Снежный вихрь (После полевых испытаний)", stock: "1 шт.", price: "1,850 ₽" },
+                { seller: "BoostGlobal", desc: "Буст звания от Сильвера до Магистра-Хранителя", stock: "Услуга", price: "990 ₽" },
+                { seller: "PrimeStore", desc: "Аккаунт CS2 с Prime статусом + родная почта", stock: "1 шт.", price: "1,200 ₽" }
+            ],
+            dota2: [
+                { seller: "ArcanaSeller", desc: "Inscribed Feast of Abscession (Аркана на Пуджа)", stock: "1 шт.", price: "2,400 ₽" },
+                { seller: "MMR_Boost", desc: "Калибровка аккаунта + 500 MMR гарантии", stock: "Услуга", price: "1,500 ₽" }
+            ],
+            genshin: [
+                { seller: "GenshinGod", desc: "Аккаунт 55 AR: C2 Raiden, Zhongli, Kazuha + Сигны", stock: "1 акк", price: "3,800 ₽" },
+                { seller: "DonaterPrime", desc: "Донат: Луна + Кристаллы по UID (через официальный магазин)", stock: "999 шт.", price: "490 ₽" }
+            ],
+            wow: [
+                { seller: "GoldMine", desc: "Золото WoW Retail (сервер Ревущий Фьорд, Орда)", stock: "500,000 g", price: "900 ₽" },
+                { seller: "TimeCards", desc: "Карта продления подписки на 60 дней EU/RU", stock: "12 шт.", price: "2,990 ₽" }
+            ],
+            brawl: [
+                { seller: "LeonShop", desc: "Аккаунт 32,000 кубков, 65 бойцов, много скинов", stock: "1 шт.", price: "1,100 ₽" },
+                { seller: "GemKing", desc: "Донат 170 гемов прямо на ваш Supercell ID", stock: "Много", price: "690 ₽" }
+            ]
+        };
+
+        const gameNames = {
+            roblox: "Roblox", cs2: "Counter-Strike 2", dota2: "Dota 2", genshin: "Genshin Impact", wow: "World of Warcraft", brawl: "Brawl Stars"
+        };
+
+        let currentActiveMode = 'login';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            selectGame('roblox', document.querySelector('.game-card.active'));
+            checkUserSession();
+        });
+
+        function scrollSlider(offset) {
+            const slider = document.getElementById('gamesSlider');
+            slider.scrollBy({ left: offset, behavior: 'smooth' });
+        }
+
+        function selectGame(gameId, cardElement) {
+            const cards = document.querySelectorAll('.game-card');
+            cards.forEach(card => card.classList.remove('active'));
+            cardElement.classList.add('active');
+
+            document.getElementById('offersTitle').innerText = `Предложения по ${gameNames[gameId]}`;
+            const tableBody = document.getElementById('offersTableBody');
+            tableBody.innerHTML = '';
+
+            const offers = gameOffers[gameId] || [];
+            if(offers.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">Пока нет активных предложений.</td></tr>`;
+                return;
+            }
+
+            offers.forEach(offer => {
+                const firstLetter = offer.seller.charAt(0).toUpperCase();
+                tableBody.innerHTML += `
+                    <tr>
+                        <td>
+                            <div class="seller-info">
+                                <div class="seller-avatar">${firstLetter}</div>
+                                <span>${offer.seller}</span>
+                            </div>
+                        </td>
+                        <td>${offer.desc}</td>
+                        <td>${offer.stock}</td>
+                        <td class="offer-price">${offer.price}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function openAuthModal(mode) {
+            document.getElementById('authModal').classList.add('active');
+            switchTab(mode);
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+            clearFormStates();
+        }
+
+        function switchTab(mode) {
+            currentActiveMode = mode;
+            const tabLogin = document.getElementById('tabLogin');
+            const tabRegister = document.getElementById('tabRegister');
+            const submitBtn = document.getElementById('submitBtn');
+            clearFormStates();
+
+            if (mode === 'login') {
+                tabLogin.classList.add('active');
+                tabRegister.classList.remove('active');
+                submitBtn.innerText = 'Войти';
+            } else {
+                tabLogin.classList.remove('active');
+                tabRegister.classList.add('active');
+                submitBtn.innerText = 'Зарегистрироваться';
+            }
+        }
+
+        function clearFormStates() {
+            document.getElementById('authForm').reset();
+            document.getElementById('formError').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'none';
+        }
+
+        function handleAuthSubmit(event) {
+            event.preventDefault();
+            const username = document.getElementById('authUsername').value.trim();
+            const password = document.getElementById('authPassword').value;
+            const errorDiv = document.getElementById('formError');
+            const successDiv = document.getElementById('formSuccess');
+
+            let users = JSON.parse(localStorage.getItem('gm_users')) || [];
+
+            if (currentActiveMode === 'register') {
+                if (users.some(u => u.username.toLowerCase() === username.toLowerCase())) {
+                    errorDiv.innerText = "Имя пользователя уже занято!";
+                    errorDiv.style.display = 'block';
+                    return;
+                }
+
+                users.push({ username, password, balance: "2,500 ₽" });
+                localStorage.setItem('gm_users', JSON.stringify(users));
+                successDiv.innerText = "Регистрация успешна!";
+                successDiv.style.display = 'block';
+                
+                setTimeout(() => { switchTab('login'); document.getElementById('authUsername').value = username; }, 1500);
+            } else {
+                const matchedUser = users.find(u => u.username.toLowerCase() === username.toLowerCase() && u.password === password);
+                if (matchedUser) {
+                    localStorage.setItem('gm_current_session', JSON.stringify(matchedUser));
+                    showToast(`Добро пожаловать, ${matchedUser.username}!`);
+                    closeAuthModal();
+                    checkUserSession();
+                } else {
+                    errorDiv.innerText = "Неверный логин или пароль";
+                    errorDiv.style.display = 'block';
+                }
+            }
+        }
+
+        function checkUserSession() {
+            const currentSession = JSON.parse(localStorage.getItem('gm_current_session'));
+            const authButtons = document.getElementById('authButtons');
+            const userWidget = document.getElementById('userProfileWidget');
+
+            if (currentSession) {
+                authButtons.style.display = 'none';
+                userWidget.style.display = 'flex';
+                document.getElementById('displayUsername').innerText = currentSession.username;
+                document.getElementById('displayBalance').innerText = `Баланс: ${currentSession.balance}`;
+            } else {
+                authButtons.style.display = 'flex';
+                userWidget.style.display = 'none';
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('gm_current_session');
+            checkUserSession();
+            showToast("Вы вышли из системы");
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.classList.add('active');
+            setTimeout(() => toast.classList.remove('active'), 3000);
+        }
+    </script>
 </body>
 </html>
